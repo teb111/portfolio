@@ -17,8 +17,10 @@
   --shadow: 0 18px 40px rgba(5, 8, 19, 0.35);
   --container-width: 1100px;
   --header-height: 72px;
-  --font-display: "Space Grotesk", "Calibre", "Source Sans Pro", system-ui, -apple-system, sans-serif;
-  --font-body: "Calibre", "Source Sans Pro", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", "Calibre", "Source Sans Pro", system-ui,
+    -apple-system, sans-serif;
+  --font-body: "Calibre", "Source Sans Pro", system-ui, -apple-system,
+    sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -39,7 +41,9 @@ body {
   font-family: var(--font-body);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 img,
@@ -128,7 +132,8 @@ main {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   border: 1px solid transparent;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .btn:hover {
@@ -163,14 +168,19 @@ main {
   z-index: 10;
   bottom: 0;
   display: none;
+  flex-direction: column;
   align-items: center;
   color: var(--text-muted);
 }
 
 .side-rail ul {
   list-style: none;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1.2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .side-rail--social {
@@ -208,7 +218,7 @@ main {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 100;
   backdrop-filter: blur(18px);
   background: rgba(31, 32, 40, 0.86);
   border-bottom: 1px solid rgba(148, 163, 184, 0.1);
@@ -235,11 +245,24 @@ main {
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(20, 215, 144, 0.3);
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .menu-toggle {
   position: relative;
-  z-index: 30;
+  z-index: 200;
   width: 48px;
   height: 48px;
   border: none;
@@ -251,7 +274,16 @@ main {
   justify-content: center;
   gap: 6px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.menu-toggle:hover {
+  background: var(--bg-soft);
+  transform: scale(1.02);
+}
+
+.menu-toggle:active {
+  transform: scale(0.98);
 }
 
 .menu-toggle span {
@@ -282,26 +314,36 @@ body.nav-open .menu-toggle span:nth-child(3) {
 .site-nav {
   position: fixed;
   inset: 0;
+  z-index: 150;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  background: rgba(31, 32, 40, 0.96);
+  background: rgba(31, 32, 40, 0.98);
+  backdrop-filter: blur(20px);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 body.nav-open .site-nav {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
+}
+
+/* Prevent scrolling when nav is open */
+body.nav-open {
+  overflow: hidden;
+  height: 100vh;
 }
 
 .nav-links {
   list-style: none;
   display: grid;
-  gap: 1.2rem;
+  gap: 2rem;
   text-align: center;
 }
 
@@ -310,10 +352,15 @@ body.nav-open .site-nav {
   align-items: center;
   gap: 0.6rem;
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
 }
 
 .nav-links span:first-child {
@@ -322,17 +369,20 @@ body.nav-open .site-nav {
 }
 
 .nav-resume {
-  padding: 0.85rem 1.8rem;
+  padding: 1rem 2rem;
   border-radius: 999px;
   border: 1px solid var(--accent);
   color: var(--accent);
   font-family: var(--font-display);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
 }
 
-body.nav-open .nav-resume {
-  box-shadow: inset 0 0 0 1px var(--accent);
+.nav-resume:hover {
+  background: var(--accent);
+  color: var(--bg);
 }
 
 .hero {
@@ -446,8 +496,7 @@ body.nav-open .nav-resume {
   font-size: clamp(2rem, 8vw, 3.2rem);
   font-weight: 600;
   letter-spacing: 0.08em;
-  background:
-    linear-gradient(145deg, rgba(20, 215, 144, 0.2), transparent),
+  background: linear-gradient(145deg, rgba(20, 215, 144, 0.2), transparent),
     linear-gradient(320deg, rgba(39, 174, 96, 0.22), rgba(8, 12, 18, 0.65));
   box-shadow: 0 15px 40px rgba(12, 19, 32, 0.4);
 }
@@ -672,6 +721,7 @@ body.nav-open .nav-resume {
   border-radius: 50%;
   background: rgba(20, 215, 144, 0.08);
   border: 1px solid rgba(20, 215, 144, 0.18);
+  transition: all 0.2s ease;
 }
 
 .footer-social a:hover,
@@ -695,7 +745,7 @@ body.nav-open .nav-resume {
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   .side-rail {
     display: flex;
   }
@@ -707,11 +757,15 @@ body.nav-open .nav-resume {
   .site-nav {
     position: static;
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     flex-direction: row;
     gap: 2.5rem;
     background: transparent;
+    backdrop-filter: none;
     width: auto;
+    z-index: auto;
+    inset: auto;
   }
 
   .nav-links {
@@ -726,10 +780,22 @@ body.nav-open .nav-resume {
 
   .nav-resume {
     font-size: 0.85rem;
+    padding: 0.85rem 1.8rem;
   }
-
 }
 
+/* Tablet styles */
+@media (max-width: 767px) and (min-width: 641px) {
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  .nav-resume {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile styles */
 @media (max-width: 640px) {
   main,
   .nav-container,
@@ -756,5 +822,140 @@ body.nav-open .nav-resume {
 
   .project-card {
     padding: 1.8rem;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  .nav-resume {
+    font-size: 0.85rem;
+    padding: 0.9rem 1.5rem;
+  }
+
+  .menu-toggle {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Ensure mobile nav doesn't get cut off */
+  .site-nav {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    min-height: 100svh; /* Small viewport height for mobile browsers */
+  }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Better focus indicators for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Improve text rendering */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-rendering: optimizeLegibility;
+}
+
+/* Better scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Loading state styles */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Additional utility classes */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Font Awesome icon fixes */
+.fa-brands,
+.fa-solid,
+.fa,
+i[class^="fa-"] {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+/* Ensure Font Awesome icons are properly styled and centered */
+.side-rail i,
+.footer-social i,
+.project-card i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+/* Center the social media icons in the side rail */
+.side-rail a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.side-rail a:hover {
+  transform: translateY(-2px);
+}
+
+/* Dark mode support enhancement */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
   }
 }

@@ -529,6 +529,22 @@ body.nav-open {
   font-size: 0.95rem;
 }
 
+.experience-tech {
+  margin-top: 1.4rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(20, 215, 144, 0.35);
+  background: linear-gradient(
+      140deg,
+      rgba(20, 215, 144, 0.14),
+      rgba(20, 215, 144, 0.03)
+    ),
+    rgba(10, 18, 28, 0.6);
+  color: var(--accent);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .experience-item ul {
   list-style: none;
   display: grid;

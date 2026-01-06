@@ -59,7 +59,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Source+Sans+Pro:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <!-- Font Awesome CDN for reliable icon loading -->
@@ -161,34 +161,119 @@
 
     <main id="home">
       <section class="hero">
-        <div class="hero-inner">
-          <p class="hero-eyebrow">Hi, my name is</p>
-          <h1>Oluwa Tobiloba.</h1>
-          <h2>I build secure, scalable systems.</h2>
-          <p class="hero-summary">
-            I'm a senior backend and data-oriented software engineer with 5+
-            years designing secure, scalable systems for fintech, banking, and
-            data-driven platforms. I specialise in transactional systems,
-            payment processing, wallet infrastructure, and distributed services
-            using <span>Node.js</span>, <span>.NET</span>, and
-            <span>SQL</span> across AWS and Azure.
-          </p>
+        <div class="hero-layout">
+          <aside class="profile-card" aria-label="Profile card">
+            <div class="profile-photo">
+              <img
+                src="mages/IMG_2031.jpg"
+                alt="Portrait of Oluwa Tobiloba"
+                loading="lazy"
+              />
+            </div>
+            <div class="profile-details">
+              <p class="profile-name">Oluwa Tobiloba</p>
+              <p class="profile-role">Senior Backend Engineer</p>
+              <p class="profile-blurb">
+                A full-stack engineer building secure systems, data platforms,
+                and thoughtful user experiences.
+              </p>
+              <p class="profile-location">Lagos, Nigeria</p>
+              <div class="profile-social" aria-label="Profile social links">
+                <a
+                  href="https://twitter.com/oluwaa_Tobiloba"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Twitter"
+                >
+                  <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://github.com/teb111"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                >
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/_t.e_b/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                >
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/oluwa-tobiloba/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </aside>
 
-          <p class="hero-summary">
-            I am currently learning <span>SOLIDITY</span>
-          </p>
-          <div class="hero-actions">
-            <a
-              class="btn btn-accent"
-              href="mailto:fakoredetobiloba.ft@gmail.com"
-              >Get In Touch</a
-            >
-            <a
-              class="btn btn-ghost"
-              href="./FAKOREDE-TOBILOBA-RESUME-latest.pdf"
-              download
-              >Download Resume</a
-            >
+          <div class="hero-main">
+            <!-- <p class="hero-eyebrow">Software Engineer</p> -->
+            <h1 class="hero-title">
+              <span>SOFTWARE</span>
+              <span class="hero-title--ghost">ENGINEER</span>
+            </h1>
+            <p class="hero-summary">
+              Full-stack engineer with a deep focus on backend and data systems,
+              building secure, scalable products across fintech, commerce, and
+              SaaS. I ship reliable APIs, data pipelines, and distributed
+              services with Node.js, .NET, SQL, and modern frontend frameworks.
+            </p>
+            <p class="hero-note">Currently learning Solidity.</p>
+
+            <div class="hero-stats" aria-label="Career highlights">
+              <div class="stat">
+                <span class="stat-value">5+</span>
+                <span class="stat-label">Years Experience</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value">20+</span>
+                <span class="stat-label">Technologies</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value">2</span>
+                <span class="stat-label">Cloud Platforms</span>
+              </div>
+            </div>
+
+            <!-- <div class="hero-cards" aria-label="Specialties">
+              <article class="skill-card skill-card--sunset">
+                <div class="skill-card__icon">
+                  <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                </div>
+                <h3>Transaction System Design</h3>
+                <p>Reliable workflows, reconciliation, auditability, scale.</p>
+              </article>
+              <article class="skill-card skill-card--lime">
+                <div class="skill-card__icon">
+                  <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+                </div>
+                <h3>Full-Stack Delivery</h3>
+                <p>Backend-first systems plus clean, responsive UI builds.</p>
+              </article>
+            </div> -->
+
+            <div class="hero-actions">
+              <a
+                class="btn btn-accent"
+                href="mailto:fakoredetobiloba.ft@gmail.com"
+                >Get In Touch</a
+              >
+              <a
+                class="btn btn-ghost"
+                href="./FAKOREDE-TOBILOBA-RESUME-latest.pdf"
+                download
+                >Download Resume</a
+              >
+            </div>
           </div>
         </div>
       </section>

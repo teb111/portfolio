@@ -63,7 +63,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: url("mages/topography.svg") center/520px repeat;
+  background: url("images/topography.svg") center/520px repeat;
   opacity: 0.08;
   mix-blend-mode: soft-light;
   pointer-events: none;
@@ -646,7 +646,7 @@ body.nav-open {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("mages/topography.svg") center/240px repeat;
+  background: url("images/topography.svg") center/240px repeat;
   opacity: 0.12;
   pointer-events: none;
 }
@@ -847,6 +847,15 @@ body.nav-open {
 .projects {
   display: grid;
   gap: 4rem;
+}
+
+.projects-note {
+  font-size: 0.95rem;
+  color: var(--text-muted, #a0a0a0);
+  border-left: 3px solid var(--accent, #f26d21);
+  padding-left: 1rem;
+  margin-bottom: 3rem;
+  line-height: 1.7;
 }
 
 .featured-projects {
